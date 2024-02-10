@@ -1,0 +1,29 @@
+.delete-event-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.confirmation-text {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.delete-event-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.delete-event-form button[type="submit"]:hover {
+    background-color: #c82333;
+}

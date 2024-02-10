@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.actions a:hover {
+    background-color: #0056b3;
+}
+
+.auth-info {
+    text-align: right;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.auth-info span {
+    margin-right: 10px;
+    color: #777;
+}
+
+.auth-links {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.auth-links a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 12px;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+.auth-links a:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.add-event-btn {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    justify-content: flex-start;
+}

@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edytowanie wydarzenia</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/i_ticket_app/event.css' %}">
+</head>
+<body>
+    <div class="event-form">
+        <form method="post" class="edit-event-form">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="error-message">
+                    {% for field, error in form.errors.items %}
+                        {{ error }}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {{ form.as_p }}
+            <button type="submit">Zapisz zmiany</button>
+        </form>
+    </div>
+</body>
+</html>

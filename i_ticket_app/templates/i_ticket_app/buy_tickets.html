@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kup bilety</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/i_ticket_app/buy_tickets.css' %}">
+</head>
+<body>
+    <div class="buy-tickets-form">
+        <h2>Kup bilety na wydarzenie: {{ event.Name }}</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Kup bilety</button>
+        </form>
+    </div>
+</body>
+</html>

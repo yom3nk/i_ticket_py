@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Wydarzeń</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'i_ticket_app/index.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-info">
+            {% if user.is_authenticated %}
+                <span>Zalogowany jako: {{ user.username }}, Rola: {% if user.is_superuser %}Admin{% else %}Użytkownik{% endif %}</span>
+            {% else %}
+                <span>Niezalogowany</span>
+            {% endif %}
+        </div>
+        <h1>Lista Wydarzeń</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nazwa Wydarzenia</th>
+                    <th>Data</th>
+                    <th>Lokalizacja</th>
+                    <th>Kategoria</th>
+                    <th>Dostępne Bilety</th>
+                    {% if user.is_authenticated %}
+                        <th>Akcje</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in events %}
+                    <tr>
+                        <td>{{ event.id }}</td>
+                        <td>{{ event.Name }}</td>
+                        <td>{{ event.Date }}</td>
+                        <td>{{ event.location_name }}</td>
+                        <td>{{ event.category_name }}</td>
+                        <td>{{ event.AvailableTickets }}</td>
+                        {% if user.is_authenticated %}
+                            <td class="actions">
+                                {% if user.is_superuser %}
+                                    <a href="/edit/{{ event.id }}">Edytuj</a>
+                                    <a href="/delete/{{ event.id }}">Usuń</a>
+                                {% else %}
+                                    <a href="/buy/{{ event.id }}">Kup bilet</a>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+                <div class="actions add-event-btn">
+                    <a href="/add">Dodaj nowe wydarzenie</a>
+                </div>
+            {% endif %}
+            <div class="auth-links">
+                <a href="/logout">Wyloguj</a>
+            </div>
+        {% else %}
+            <div class="auth-links">
+                <a href="/login">Zaloguj</a>
+                <a href="/register">Zarejestruj się</a>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

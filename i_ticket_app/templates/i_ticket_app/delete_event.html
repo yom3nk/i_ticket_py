@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuwanie wydarzenia</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'i_ticket_app/delete_event.css' %}">
+</head>
+<body>
+    <div class="delete-event-form">
+        <span class="confirmation-text">Czy na pewno chcesz usunąć wydarzenie "{{ event.Name }}"?</span>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Usuń</button>
+        </form>
+    </div>
+</body>
+</html>
